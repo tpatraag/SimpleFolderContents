@@ -1,11 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Configuration;
 using System.IO;
-using System.Linq;
-using System.Web;
 using System.Web.UI;
-using System.Web.UI.WebControls;
 
 namespace SimpleFolderContents
 {
@@ -16,14 +12,15 @@ namespace SimpleFolderContents
         {
             try
             {
-                if (Directory.Exists(rootDir))
-                {
+                lblDirContents.Text = $"Directory Contents List for {rootDir}";
+                //if (Directory.Exists(rootDir))
+                //{
                     var contents = Directory.EnumerateFiles(rootDir);
                     ddlDirectoryContents.DataSource = contents;
                     ddlDirectoryContents.DataBind();
-                }
-                lblError.Text = "Directory doesn't exists for me";
-                lblError.Visible = true;
+                //}
+                //lblError.Text = "Directory doesn't exists for me";
+                //lblError.Visible = true;
             }
             catch(Exception ex)
             {
