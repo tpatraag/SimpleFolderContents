@@ -22,6 +22,8 @@ namespace SimpleFolderContents
                     ddlDirectoryContents.DataSource = contents;
                     ddlDirectoryContents.DataBind();
                 }
+                lblError.Text = "Directory doesn't exists for me";
+                lblError.Visible = true;
             }
             catch(Exception ex)
             {
