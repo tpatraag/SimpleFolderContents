@@ -15,6 +15,9 @@
                 <asp:Label ID="lblDirContents" Text="Directory Contents List" runat="server"></asp:Label>
                 <asp:DropDownList ID="ddlDirectoryContents" runat="server"></asp:DropDownList>
             </p>
+            <p>
+                <asp:Label ID="lblError" runat="server" Visible="False"></asp:Label>
+            </p>
         </div>
     </div>
 

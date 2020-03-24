@@ -14,11 +14,19 @@ namespace SimpleFolderContents
         private string rootDir = ConfigurationManager.AppSettings["rootDir"];
         protected void Page_Load(object sender, EventArgs e)
         {
-            if(Directory.Exists(rootDir))
+            try
             {
-                var contents = Directory.EnumerateFiles(rootDir);
-                ddlDirectoryContents.DataSource = contents;
-                ddlDirectoryContents.DataBind();
+                if (Directory.Exists(rootDir))
+                {
+                    var contents = Directory.EnumerateFiles(rootDir);
+                    ddlDirectoryContents.DataSource = contents;
+                    ddlDirectoryContents.DataBind();
+                }
+            }
+            catch(Exception ex)
+            {
+                lblError.Text = ex.StackTrace;
+                lblError.Visible = true;
             }
         }
     }
