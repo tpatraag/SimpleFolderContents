@@ -23,6 +23,7 @@ namespace SimpleFolderContents
         private static string aadInstance = EnsureTrailingSlash(ConfigurationManager.AppSettings["ida:AADInstance"]);
         private static string tenantId = ConfigurationManager.AppSettings["ida:TenantId"];
         private static string postLogoutRedirectUri = ConfigurationManager.AppSettings["ida:PostLogoutRedirectUri"];
+        private static string redirectUri = ConfigurationManager.AppSettings["ida:RedirectUri"];
 
         private string authority = aadInstance + tenantId;
         // This is the resource ID of the AAD Graph API.  We'll need this to request a token to call the Graph API.
@@ -39,6 +40,7 @@ namespace SimpleFolderContents
                 {
                     ClientId = clientId,
                     Authority = authority,
+                    RedirectUri = redirectUri,
                     PostLogoutRedirectUri = postLogoutRedirectUri,
                     Notifications = new OpenIdConnectAuthenticationNotifications()
                     {
