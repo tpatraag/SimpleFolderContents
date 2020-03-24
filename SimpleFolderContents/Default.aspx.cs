@@ -24,7 +24,7 @@ namespace SimpleFolderContents
             }
             catch(Exception ex)
             {
-                lblError.Text = ex.StackTrace;
+                lblError.Text = ex.Message + "<br>" + ex.StackTrace;
                 lblError.Visible = true;
             }
         }
